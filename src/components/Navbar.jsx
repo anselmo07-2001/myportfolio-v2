@@ -17,61 +17,62 @@ function Navbar() {
         sx={{
           backgroundImage: (theme) => `linear-gradient(90deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
           boxShadow: "none",
+          py: 0.5,
         }}>
           <Toolbar>
-            <Typography 
-               variant="h6"
-               sx={{
-                  flexGrow: 1,
-                  fontWeight: "bold",
-                  letterSpacing: 1,
-               }}
-            >
-                Anselmo Rivera
-            </Typography>
+              <Typography 
+                variant="h6"
+                sx={{
+                    flexGrow: 1,
+                    fontWeight: "bold",
+                    letterSpacing: 1,
+                }}
+              >
+                  Anselmo Rivera
+              </Typography>
 
-            <Box sx={{ display: {xs: "none", md: "flex"}, gap: 2}}>
-                { menuItems.map((item) => (
-                    <Button
-                      key={item}
-                      color="inherit"
-                      sx={{
-                          position: "relative",
-                          fontWeight: "500",
-                          "&::after": {
-                            content: '""',
-                            position: "absolute",
-                            width: "0%",
-                            height: "2px",
-                            bottom: 0,
-                            left: 0,
-                            backgroundColor: "#fff",
-                            transition: "width 0.3s ease-in-out",
-                          },
-                          "&:hover::after": {
-                            width: "100%",
-                          },
-                      }}
-                    >
-                       {item}
-                    </Button>
-                ))}
-            </Box>
+              <Box sx={{ display: {xs: "none", md: "flex"}, gap: 2}}>
+                  { menuItems.map((item) => (
+                      <Button
+                        key={item}
+                        color="inherit"
+                        sx={{
+                            position: "relative",
+                            fontWeight: "500",
+                            "&::after": {
+                              content: '""',
+                              position: "absolute",
+                              width: "0%",
+                              height: "2px",
+                              bottom: 0,
+                              left: 0,
+                              backgroundColor: "#fff",
+                              transition: "width 0.3s ease-in-out",
+                            },
+                            "&:hover::after": {
+                              width: "100%",
+                            },
+                        }}
+                      >
+                        {item}
+                      </Button>
+                  ))}
+              </Box>
 
-            <IconButton
-                color="inherit"
-                edge="end"
-                sx={{ display: {xs: "block", md: "none" }}}
-                onClick={() => setOpen(true)}
-            >
-                <MenuIcon />
-            </IconButton>
+              <IconButton
+                  color="inherit"
+                  edge="end"
+                  sx={{ display: {xs: "block", md: "none" }}}
+                  onClick={() => setOpen(true)}
+              >
+                  <MenuIcon />
+              </IconButton>
 
           </Toolbar>
       </AppBar>
 
       <Drawer
-          anchor="right"
+          anchor="left"
           open={ open }
           onClose={() => setOpen(false)}
           slotProps={{
