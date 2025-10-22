@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from "./style/theme";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
+import TechStack from "./components/TechStack";
 
 function App() {
    return (
@@ -11,6 +12,7 @@ function App() {
          <Navbar />
          <Hero/>
          <AboutMe/>
+         <TechStack/>
       </ThemeProvider>
    )
 }
