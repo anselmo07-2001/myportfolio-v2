@@ -1,6 +1,7 @@
 import { Box, Grid, Typography, keyframes } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
+
 const iconPop = keyframes`
   0% {
     opacity: 0;
@@ -59,106 +60,113 @@ function TechStack() {
       ref={ref}
     >
       <Box sx={{ maxWidth: 1200, mx: "auto", textAlign: "center" }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 700,
-            color: "#4b4b4b",
-            mb: 2,
-            position: "relative",
-            display: "inline-block",
-            "&::after": {
-              content: '""',
-              display: "block",
-              width: 70,
-              height: 3,
-              bgcolor: "#1976d2",
-              borderRadius: 2,
-              mx: "auto",
-              mt: 1,
-            },
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s ease-out 0s",
-          }}
-        >
-          My Tech Stack
-        </Typography>
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 700,
+              color: "#4b4b4b",
+              mb: 2,
+              position: "relative",
+              display: "inline-block",
+              "&::after": {
+                content: '""',
+                display: "block",
+                width: 70,
+                height: 3,
+                bgcolor: "#1976d2",
+                borderRadius: 2,
+                mx: "auto",
+                mt: 1,
+              },
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(30px)",
+              transition: "all 0.8s ease-out 0s",
+            }}
+          >
+            My Tech Stack
+          </Typography>
 
-        <Typography
-          variant="subtitle1"
-          sx={{
-            mb: 10,
-            color: "#555",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s ease-out 0.2s",
-          }}
-        >
-          These are the tools I love working with every day.
-        </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              mb: 10,
+              color: "#555",
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(30px)",
+              transition: "all 0.8s ease-out 0.2s",
+            }}
+          >
+            These are the tools I love working with every day.
+          </Typography>
 
-        {/* Tech Cards */}
-        <Grid container spacing={6} justifyContent="center">
-          <TechCard
-            title="Frontend Technologies"
-            description="Building beautiful, responsive, and interactive user interfaces."
-            icons={frontendIcons}
-            visible={visible}
-            delay={0.2}
-          />
-          <TechCard
-            title="Backend Technologies"
-            description="Crafting robust APIs and scalable backend systems for modern apps."
-            icons={backendIcons}
-            visible={visible}
-            delay={0.4}
-          />
-        </Grid>
+          {/* Tech Cards */}
+          <Grid container spacing={7} justifyContent={"center"}>
+              <Grid item xs={12} md={6}>
+                  <TechCard
+                    title="Frontend Technologies"
+                    description="Building beautiful, responsive, and interactive user interfaces."
+                    icons={frontendIcons}
+                    visible={visible}
+                    delay={0.2}
+                  />
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <TechCard
+                  title="Backend Technologies"
+                  description="Crafting robust APIs and scalable backend systems for modern apps."
+                  icons={backendIcons}
+                  visible={visible}
+                  delay={0.4}
+                />
+              </Grid>
+          </Grid>
       </Box>
     </Box>
   );
 }
 
+
+
+
 function TechCard({ title, description, icons, visible, delay }) {
   return (
-    <Grid item xs={12} md={6}>
-      <Box
-        sx={{
-          background: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(12px)",
-          borderRadius: "20px",
-          p: { xs: 4, md: 6 },
-          boxShadow: "0 10px 25px rgba(25,118,210,0.3)",
-          border: "1px solid rgba(255,255,255,0.3)",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(50px)",
-          transition: "all 0.8s ease-out",
-          transitionDelay: `${delay}s`,
-          "&:hover": {
-            transform: "translateY(-8px) scale(1.02)",
-            boxShadow: "0 15px 40px rgba(25,118,210,0.25)",
-            background: "rgba(255,255,255,0.15)",
-          },
-        }}
-      >
-        <Typography
-          variant="h6"
-          sx={{ color: "#1976d2", mb: 1.5, fontWeight: 700 }}
-        >
+    <Box
+      sx={{
+        maxWidth: { xs: "100%", sm: 400, md: 500 },
+
+        background: "rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(12px)",
+        borderRadius: "20px",
+        p: { xs: 4, md: 6 },
+        boxShadow: "0 10px 25px rgba(25,118,210,0.3)",
+        border: "1px solid rgba(255,255,255,0.3)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(50px)",
+        transition: "all 0.8s ease-out",
+        transitionDelay: `${delay}s`,
+        "&:hover": {
+          transform: "translateY(-8px) scale(1.02)",
+          boxShadow: "0 15px 40px rgba(25,118,210,0.25)",
+          background: "rgba(255,255,255,0.15)",
+        },
+      }}
+    >
+        <Typography variant="h6" sx={{ color: "#1976d2", mb: 1.5, fontWeight: 700 }}>
           {title}
         </Typography>
 
+        
         <Typography variant="body1" sx={{ color: "#444", mb: 4 }}>
           {description}
         </Typography>
-
+ 
         <Box
           sx={{
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
-            gap: 3,
+            gap: { xs: 3, md: 5 },
           }}
         >
           {icons.map((icon, i) => (
@@ -168,8 +176,8 @@ function TechCard({ title, description, icons, visible, delay }) {
               src={icon}
               alt=""
               sx={{
-                width: 65,
-                height: 65,
+                width: { xs: 50, md: 65 },
+                height: { xs: 50, md: 65 },
                 opacity: 0,
                 transform: "scale(0.8)",
                 animation: visible ? `${iconPop} 0.6s ease forwards` : "none",
@@ -183,9 +191,8 @@ function TechCard({ title, description, icons, visible, delay }) {
               }}
             />
           ))}
-        </Box>
-      </Box>
-    </Grid>
+        </Box> 
+    </Box>
   );
 }
 

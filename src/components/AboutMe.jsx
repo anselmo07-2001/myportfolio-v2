@@ -14,7 +14,7 @@ function AboutMe() {
                 setVisible(false); // reset when out of view
             }
             },
-            { threshold: 0.3 } // trigger when 20% visible
+            { threshold: 0.2 } // trigger when 20% visible
         );
 
         if (ref.current) observer.observe(ref.current);

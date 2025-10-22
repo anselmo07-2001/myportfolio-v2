@@ -4,6 +4,7 @@ import theme from "./style/theme";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import TechStack from "./components/TechStack";
+import Projects from "./components/Projects";
 
 function App() {
    return (
@@ -13,6 +14,7 @@ function App() {
          <Hero/>
          <AboutMe/>
          <TechStack/>
+         <Projects/>
       </ThemeProvider>
    )
 }
