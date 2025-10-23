@@ -6,6 +6,7 @@ import AboutMe from "./components/AboutMe";
 import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Certification from "./components/certifications";
+import ContactMe from "./components/ContactMe";
 
 function App() {
    return (
@@ -17,6 +18,7 @@ function App() {
          <TechStack/>
          <Projects/>
          <Certification/>
+         <ContactMe/>
       </ThemeProvider>
    )
 }
