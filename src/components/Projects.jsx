@@ -18,7 +18,7 @@ const projects = [
     description:
       "A modern online store with user authentication, product management, and Stripe integration. Features both a customer and admin dashboard.",
     image:
-      "https://thedigitalprojectmanager.com/wp-content/cache/thedigitalprojectmanager.com/static/static.crozdesk.com/web-app-library-categories-providers-screenshots-000-073-956-pub-meistertask-screenshot-1681992744.png",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tech: ["React", "Node.js", "MongoDB", "Express"],
     live: "#",
     code: "#",
@@ -118,17 +118,20 @@ function Projects() {
                     container
                     spacing={5}
                     justifyContent="center"
+                    alignItems="stretch"
                     sx={{
                         opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(40px)",
-                        transition: "all 0.8s ease-out 0.4s",
+                        transform: visible ? "translateY(0)" : "translateY(30px)",
+                        transition: "all 0.8s ease-out 0s",
                     }}
-                    >
-                    {projects.map((project, index) => (
+                >
+                    {
+                      projects.map((project, index) => (
                         <Grid key={index} item xs={12} md={6}>
-                        <ProjectCard {...project} />
+                          <ProjectCard {...project} />
                         </Grid>
-                    ))}
+                      ))
+                    }
                 </Grid>
 
                 {/* Discover More */}
@@ -165,6 +168,8 @@ function ProjectCard({ title, description, image, tech, live, code }) {
   return (
     <Box
       sx={{
+        height: "100%",
+        maxWidth: { xs: "100%", sm: 400, md: 500 },
         background: "white",
         borderRadius: "20px",
         overflow: "hidden",

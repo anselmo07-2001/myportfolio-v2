@@ -50,6 +50,7 @@ function TechStack() {
 
   return (
     <Box
+      ref={ref}
       component="section"
       id="techstack"
       sx={{
@@ -57,7 +58,6 @@ function TechStack() {
         px: { xs: 3, md: 0 },
         background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)",
       }}
-      ref={ref}
     >
       <Box sx={{ maxWidth: 1200, mx: "auto", textAlign: "center" }}>
           <Typography
