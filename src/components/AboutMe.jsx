@@ -162,6 +162,8 @@ function AboutMe() {
 
                         <Button
                             variant="contained"
+                            href="/files/myresume2025.pdf"
+                            download
                             sx={{
                                 px: 4,
                                 py: 1.5,
