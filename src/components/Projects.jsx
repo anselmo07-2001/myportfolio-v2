@@ -1,47 +1,47 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, Grid, Typography, keyframes } from "@mui/material";
+import omnifood from "../asset/projects/omnifood.png";
+import natours from "../asset/projects/natours.png";
+import shopbop from "../asset/projects/shopbop.png";
+import workopia from "../asset/projects/workopia.png";
 
 
 const projects = [
   {
-    title: "Task Management System",
+    title: "Omnifood",
     description:
-      "A full-stack web app for managing tasks and teams with real-time updates, comments, and progress tracking. Designed with a clean UI and role-based access.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    tech: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
-    live: "#",
-    code: "#",
+      "A beautiful static landing web page design adapt to mobile ui friendly for people love healthy food and customize the customer based in its personal tastes and nutrional need.",
+    image: omnifood,
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://omnifoodei.netlify.app/",
+    code: "https://github.com/anselmo07-2001/Omnifood-",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Natours",
     description:
-      "A modern online store with user authentication, product management, and Stripe integration. Features both a customer and admin dashboard.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-    live: "#",
-    code: "#",
+      "A tour booking app built for travelers who love adventure and want to discover amazing places across the globe. It uses Stripe for safe global payments and Mapbox to display tour locations",
+    image: natours,
+    tech: ["Express,js", "Mongoose", "Mongo DB"],
+    live: "https://mynatours-fjyk.onrender.com/",
+    code: "https://github.com/anselmo07-2001/myNatoursApp",
   },
   {
-    title: "Personal Portfolio",
+    title: "ShopBop",
     description:
-      "A fully responsive portfolio website showcasing my projects, skills, and background. Built with modern UI/UX design principles.",
-    image:
-      "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=1200&q=80",
-    tech: ["HTML", "CSS", "JavaScript", "Material UI"],
-    live: "#",
-    code: "#",
+      "Shopbop is a e-commerce platform with a customer and admin panel. Users can browse products, leave reviews, and manage accounts, while admins handle products, orders, and content.",
+    image: shopbop,
+    tech: ["Laravel", "Bootstrap CSS", "Livewire", "Sql"],
+    live: "https://shopbop.riveraanselmo.com/",
+    code: "https://github.com/anselmo07-2001/shopbop",
   },
   {
-    title: "Blog CMS",
+    title: "Workopia",
     description:
-      "A full-featured CMS where admins can publish, edit, and manage posts with WYSIWYG editing, user roles, and SEO-friendly URLs.",
-    image:
-      "https://uizard.io/static/cloud-sharing-web-app-cover-deea5d25e75c44f560ebb21add40ba53.png",
-    tech: ["PHP", "Laravel", "SQL", "Blade"],
-    live: "#",
-    code: "#",
+      "A web applicationn job platform built where users can search, apply, bookmark jobs, and manage profiles. Employers can post jobs, view applicants, get email, and show locations with Mapbox.",
+    image: workopia,
+    tech: ["Laravel", "Alpine.js", "Tailwind CSS", "Sql"],
+    live: "https://workopialaravel.riveraanselmo.com/",
+    code: "https://github.com/anselmo07-2001/workopia_laravel",
   },
 ];
 
@@ -138,7 +138,7 @@ function Projects() {
                 <Box sx={{ textAlign: "center", mt: 8 }}>
                     <Button
                         variant="contained"
-                        href="https://github.com/yourusername"
+                        href="https://github.com/anselmo07-2001"
                         target="_blank"
                         sx={{
                         px: 4,
@@ -244,6 +244,7 @@ function ProjectCard({ title, description, image, tech, live, code }) {
           <Button
             variant="contained"
             href={live}
+            target="_blank"
             sx={{
               bgcolor: "#1976d2",
               borderRadius: "25px",
@@ -255,6 +256,7 @@ function ProjectCard({ title, description, image, tech, live, code }) {
             Live Demo
           </Button>
           <Button
+            target="_blank"
             href={code}
             sx={{
               color: "#1976d2",

@@ -1,5 +1,6 @@
 import { Box, Button, Typography, keyframes } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import myPhoto from "../asset/me2.jpg"
 
 function AboutMe() {
     const ref = useRef(null);
@@ -109,7 +110,7 @@ function AboutMe() {
                     >
                         <Box
                             component="img"
-                            src=""
+                            src={myPhoto}
                             alt="Your photo"
                             sx={{
                                 width: { xs: 240, md: 300 },
