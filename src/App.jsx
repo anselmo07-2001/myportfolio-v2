@@ -7,6 +7,7 @@ import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Certification from "./components/certifications";
 import ContactMe from "./components/ContactMe";
+import Footer from "./components/Footer";
 
 function App() {
    return (
@@ -19,6 +20,7 @@ function App() {
          <Projects/>
          <Certification/>
          <ContactMe/>
+         <Footer/>
       </ThemeProvider>
    )
 }

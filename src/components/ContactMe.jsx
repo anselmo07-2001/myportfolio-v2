@@ -82,6 +82,9 @@ function Contact() {
                         alignItems: "center",
                         py: 6,
                         px: 2,
+                        opacity: visible ? 1 : 0,
+                        transform: visible ? "translateY(0)" : "translateY(30px)",
+                        transition: "all 0.8s ease-out 0.4s",
                     }}
                     >
                     <Grid
