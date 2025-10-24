@@ -1,4 +1,4 @@
-import { Box, Button, Grid, TextField, Typography, Snackbar, Alert } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography, Snackbar, Alert, CircularProgress } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import contactme from "../asset/contactme.png";
 import emailjs from "emailjs-com";
@@ -21,6 +21,7 @@ function Contact() {
 
     const [showCaptcha, setShowCaptcha] = useState(false);
     const [captchaValue, setCaptchaValue] = useState(null);
+    const [loading, setLoading] = useState(false);
 
         
     useEffect(() => {
@@ -78,6 +79,11 @@ function Contact() {
             return;
         }
 
+
+
+
+        setLoading(true);
+
         emailjs
             .send(
                 "service_ecci48m",
@@ -105,6 +111,7 @@ function Contact() {
                     });
                 }
             )
+            .finally(() => setLoading(false)); 
     };
 
 
@@ -328,15 +335,18 @@ function Contact() {
                                     variant="contained"
                                     size="large"
                                     type="submit"
+                                    disabled={loading}
                                     sx={{
                                         borderRadius: "15px",
                                         textTransform: "none",
                                         fontWeight: 600,
                                         fontSize: "1rem",
                                         py: 1.2,
+                                        gap: 1
                                     }}
-                                    >
-                                    Send Message
+                                >
+                                    {loading && <CircularProgress size={20} color="inherit" />}
+                                    {loading ? "Sending..." : "Send Message"}                              
                                 </Button>
                                 
                             </Box>
