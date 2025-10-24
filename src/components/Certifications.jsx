@@ -1,35 +1,39 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import cert1 from "../asset/certs/cert1.png";
+import cert2 from "../asset/certs/cert2.png";
+import cert3 from "../asset/certs/cert3.png";
+import cert4 from "../asset/certs/cert4.png";
 
 
 const certifications = [
     {
-       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-       title: "React - The Complete Guide",
-       instructor: "Maximilian Schwarzmüller",
-       description: "A comprehensive course to master React, Redux, Hooks, and building modern web apps.",
-       link: "#"
+       image: cert1,
+       title: "Linux System Administration",
+       instructor: "Elana Mofar",
+       description: "This course equips participants with core Linux administration skills, including command-line operations, user management, file permissions, disk partitioning, RAID setup, and logical volume management.",
+       link: "https://www.credential.net/d1dbcd0f-a4a4-4d51-a2db-58c593306e12#acc.wioLRpWG"
     },
     {
-       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-       title: "React - The Complete Guide",
-       instructor: "Maximilian Schwarzmüller",
-       description: "A comprehensive course to master React, Redux, Hooks, and building modern web apps.",
-       link: "#"
+       image: cert2,
+       title: "Modern React with Redux",
+       instructor: "Stephen Grider",
+       description: "This course equips participants with modern skills using React and Redux—including Hooks, Context API, React Router, API integration and state management to build scalable, real-world web applications.",
+       link: "https://www.udemy.com/certificate/UC-3195a7ad-239b-403c-89cf-65c60c4ea3a8/"
     },
     {
-       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-       title: "React - The Complete Guide",
-       instructor: "Maximilian Schwarzmüller",
-       description: "A comprehensive course to master React, Redux, Hooks, and building modern web apps.",
-       link: "#"
+       image: cert3,
+       title: "PHP - Beginner to Advanced",
+       instructor: "Jannis Seeman",
+       description: "This course teaches modern PHP development, covering OOP, namespaces, MVC architecture, and best practices to build clean, scalable, and maintainable web applications efficiently and effectively.",
+       link: "https://www.udemy.com/certificate/UC-9454a022-568f-4e58-a667-15661af04a60/"
     },
     {
-       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-       title: "React - The Complete Guide",
-       instructor: "Maximilian Schwarzmüller",
-       description: "A comprehensive course to master React, Redux, Hooks, and building modern web apps.",
-       link: "#"
+       image: cert4,
+       title: "Laravel From Scratch",
+       instructor: "Brad Traversy",
+       description: "This course teaches you how to master the Laravel PHP framework from the ground up by building real-world applications, covering routing, MVC, Eloquent ORM, Blade templating, authentication, and deployment.",
+       link: "https://www.udemy.com/certificate/UC-66136026-2fdc-4ed9-a2c5-8359c7095529/"
     },
 
 ];
@@ -203,6 +207,7 @@ function CerticateCard({image, title, instructor, description, link, visible}) {
 
             <Button
                 fullWidth
+                target="_blank"
                 sx={{
                     justifyContent: "flex-start",
                     pl: 0
