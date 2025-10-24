@@ -33,6 +33,11 @@ function Navbar() {
                     flexGrow: 1,
                     fontWeight: "bold",
                     letterSpacing: 1,
+                    cursor: "pointer",
+                }}
+                onClick={() => {
+                  window.scrollTo(0, 0);       
+                  window.location.reload(); 
                 }}
               >
                   Anselmo Rivera
@@ -134,7 +139,10 @@ function Navbar() {
                     }}
                   >
                       <ListItemButton
-                          onClick={() => setOpen(false)}
+                          onClick={() => {
+                            handleScroll(text);
+                            setOpen(false);      
+                          }}
                           sx={{
                             color: "white",
                             justifyContent: "center",
