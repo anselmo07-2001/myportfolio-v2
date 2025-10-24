@@ -26,20 +26,20 @@ const iconPop = keyframes`
 
 const socialLinks = [
     {
-      href: "https://github.com/yourusername",
+      href: "https://github.com/anselmo07-2001",
       src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg",
       alt: "GitHub",
     },
     {
-      href: "https://www.linkedin.com/in/yourusername/",
+      href: "https://www.linkedin.com/in/anselmo-rivera-iii",
       src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg",
       alt: "LinkedIn",
     },
-    {
-      href: "https://www.facebook.com/yourusername",
-      src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg",
-      alt: "Facebook",
-    },
+    // {
+    //   href: "https://www.facebook.com/yourusername",
+    //   src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg",
+    //   alt: "Facebook",
+    // },
   ];
 
 

@@ -65,7 +65,7 @@ function Projects() {
     return (
         <Box
             component="section"
-            id="techstack"
+            id="Projects"
             sx={{
                 py: { xs: 10, md: 12 },
                 px: { xs: 3, md: 0 },

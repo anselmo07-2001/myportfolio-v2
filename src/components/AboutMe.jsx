@@ -29,7 +29,7 @@ function AboutMe() {
     return (
         <Box
             component="section"
-            id="about"
+            id="About"
             sx={{
                 py: { xs: 10, md: 12},
                 px: { xs: 3, md: 0},

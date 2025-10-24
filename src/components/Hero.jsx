@@ -18,6 +18,7 @@ function Hero() {
 
     return (
         <Box
+            id="Home"
             sx={{
                 height: { xs: "calc(100vh - 56px)", md: "calc(100vh - 64px)" },
                 backgroundColor: "#cceefd52",
@@ -95,7 +96,7 @@ function Hero() {
                         animationDelay: "0.9s",
                         }}
                     >
-                        <Link href="https://www.linkedin.com" target="_blank" color="inherit">
+                        <Link href="https://www.linkedin.com/in/anselmo-rivera-iii" target="_blank" color="inherit">
                             <Box
                                 component="img"
                                 src={linkedin}
@@ -108,7 +109,7 @@ function Hero() {
                                 }}
                             />
                         </Link>
-                        <Link href="https://github.com" target="_blank" color="inherit">
+                        <Link href="https://github.com/anselmo07-2001" target="_blank" color="inherit">
                             <Box
                                 component="img"
                                 src={github}

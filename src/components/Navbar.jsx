@@ -8,7 +8,14 @@ function Navbar() {
   const [open, setOpen] = useState(false);
 
   // menu items (for desktop + mobile)
-  const menuItems = ["Home", "About", "Skills", "Projects", "Contact"];
+  const menuItems = ["Home", "About", "Skills", "Projects", "Certification", "Contact"];
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -34,6 +41,7 @@ function Navbar() {
               <Box sx={{ display: {xs: "none", md: "flex"}, gap: 2}}>
                   { menuItems.map((item) => (
                       <Button
+                        onClick={() => handleScroll(item)}
                         key={item}
                         color="inherit"
                         sx={{

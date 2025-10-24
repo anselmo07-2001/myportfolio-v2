@@ -52,7 +52,7 @@ function TechStack() {
     <Box
       ref={ref}
       component="section"
-      id="techstack"
+      id="Skills"
       sx={{
         py: { xs: 10, md: 12 },
         px: { xs: 3, md: 0 },
