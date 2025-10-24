@@ -1,12 +1,27 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography, Snackbar, Alert } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import contactme from "../asset/contactme.png";
+import emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 function Contact() {
 
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
+    const [formData, setFormData] = useState({ name: "", email: "", message: "", receiver_name: "Anselmo Rivera" });
+
+    const [errors, setErrors] = useState({});
+
+    const [flash, setFlash] = useState({
+        open: false,
+        message: "",
+        severity: "success",  // "success" | "error" | "info" | "warning"
+    });
+
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const [captchaValue, setCaptchaValue] = useState(null);
+
         
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -17,6 +32,80 @@ function Contact() {
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
     }, []);
+
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let newErrors = {};
+
+        if (!formData.name.trim()) newErrors.name = "Name is required";
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = "Enter a valid email";
+        }
+        if (!formData.message.trim()) newErrors.message = "Message is required";
+
+        setErrors(newErrors);
+
+        // Stop submission if there are errors
+        if (Object.keys(newErrors).length > 0) {
+            setFlash({
+                open: true,
+                message: "Please fill out all fields correctly.",
+                severity: "error",
+            });
+            return;
+        }
+
+
+        // If form is valid but captcha not shown yet, show it
+        if (!showCaptcha) {
+            setShowCaptcha(true);
+            return; // stop submission until captcha is completed
+        }
+
+
+        // If captcha is shown, check if user completed it
+        if (!captchaValue) {
+            setFlash({ open: true, message: "Please verify you are not a robot", severity: "error" });
+            return;
+        }
+
+        emailjs
+            .send(
+                "service_ecci48m",
+                "template_dh484as",
+                formData,
+                "558vTnzLwzKPQrID0"
+            )
+            .then(
+                () => {
+                    setFlash({
+                        open: true,
+                        message: "Email sent successfully!",
+                        severity: "success",
+                    });
+                    setFormData({ name: "", email: "", message: "", receiver_name: "Anselmo Rivera" })
+                    setCaptchaValue(null);
+                    setShowCaptcha(false); // reset captcha visibility
+                },
+                (err) => {
+                    console.error(err);
+                    setFlash({
+                        open: true,
+                        message: "Failed to send email. Please try again.",
+                        severity: "error",
+                    });
+                }
+            )
+    };
 
 
     return (
@@ -74,7 +163,35 @@ function Contact() {
                     Let's create something amazing together 👋
                 </Typography>
 
-
+                <Snackbar
+                    open={flash.open}
+                    autoHideDuration={4000}
+                    onClose={() => setFlash({ ...flash, open: false })}
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                    >
+                    <Alert
+                        severity={flash.severity}
+                        variant="filled"
+                        onClose={() => setFlash({ ...flash, open: false })}
+                        sx={{ 
+                            width: "100%",
+                            backgroundColor: 
+                             flash.severity === "success"
+                                ? "#3da575ff"
+                                : "#d32f2f",  
+                            color: "#fff",
+                            fontSize: "1rem",
+                            fontWeight: 500,
+                            py: 1.5, 
+                            px: 3, 
+                            borderRadius: "8px", 
+                            boxShadow: 2, 
+                        }}
+                    >
+                        {flash.message}
+                    </Alert>
+                </Snackbar>
+          
                 <Box
                     sx={{
                         display: "flex",
@@ -115,13 +232,29 @@ function Contact() {
                         >
                             <Box
                                 component="form"
+                                onSubmit={handleSubmit}
                                 sx={{
                                     display: "flex",
                                     flexDirection: "column",
                                     gap: 2.5,
                                 }}
                             >
+
+                                {showCaptcha && (
+                                    <ReCAPTCHA
+                                        sitekey="6LdQP_YrAAAAAJc9SGxqh-I_VM67_jp4fFQ-Mjvc"
+                                        onChange={(value) => setCaptchaValue(value)}
+                                        style={{ margin: "8px 0" }} // optional spacing
+                                    />
+                                )}
+
+
                                 <TextField
+                                    onChange={handleChange}
+                                    name="name"
+                                    value={formData.name}
+                                    error={!!errors.name}
+                                    helperText={errors.name}
                                     label="Name"
                                     variant="outlined"
                                     fullWidth
@@ -141,6 +274,11 @@ function Contact() {
                                 />
 
                                 <TextField
+                                    onChange={handleChange}
+                                    name="email"
+                                    value={formData.email}
+                                    error={!!errors.email}
+                                    helperText={errors.email}
                                     label="Email"
                                     type="email"
                                     variant="outlined"
@@ -161,6 +299,11 @@ function Contact() {
                                 />
 
                                 <TextField
+                                    onChange={handleChange}
+                                    name="message"
+                                    value={formData.message}
+                                    error={!!errors.message}
+                                    helperText={errors.message}
                                     label="Message"
                                     multiline
                                     rows={4}
@@ -184,6 +327,7 @@ function Contact() {
                                 <Button
                                     variant="contained"
                                     size="large"
+                                    type="submit"
                                     sx={{
                                         borderRadius: "15px",
                                         textTransform: "none",
