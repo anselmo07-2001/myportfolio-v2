@@ -1,5 +1,7 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import SectionTitle from "./Typography/SectionTitle";
+import SectionSubtitle from "./Typography/SectionSubtitle";
 import cert1 from "../asset/certs/cert1.png";
 import cert2 from "../asset/certs/cert2.png";
 import cert3 from "../asset/certs/cert3.png";
@@ -72,44 +74,9 @@ function Certification() {
                     mx: "auto",
                     textAlign: "center",
                 }}>
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 700,
-                        color: "#4b4b4b",
-                        mb: 2,
-                        position: "relative",
-                        display: "inline-block",
-                        "&::after": {
-                            content: '""',
-                            display: "block",
-                            width: 70,
-                            height: 3,
-                            bgcolor: "#1976d2",
-                            borderRadius: 2,
-                            mx: "auto",
-                            mt: 1,
-                        },
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0s",
-                    }}
-                >
-                    Certifications
-                </Typography>
 
-                <Typography
-                    variant="subtitle1"
-                    sx={{
-                        mb: 10,
-                        color: "#555",
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0.2s",
-                    }}
-                >
-                    Never stop learning — recognized skills across technology
-                </Typography>
+                <SectionTitle visible={visible}>Certifications</SectionTitle>
+                <SectionSubtitle visible={visible}>Never stop learning — recognized skills across technology</SectionSubtitle>
 
                 <Grid container spacing={2} justifyContent={"center"}>
                     {

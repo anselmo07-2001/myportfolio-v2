@@ -1,5 +1,7 @@
 import { Box, Button, Grid, TextField, Typography, Snackbar, Alert, CircularProgress } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import SectionTitle from "./Typography/SectionTitle";
+import SectionSubtitle from "./Typography/SectionSubtitle";
 import contactme from "../asset/contactme.png";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -131,45 +133,10 @@ function Contact() {
                     mx: "auto",
                     textAlign: "center",
                 }}>
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 700,
-                        color: "#4b4b4b",
-                        mb: 2,
-                        position: "relative",
-                        display: "inline-block",
-                        "&::after": {
-                            content: '""',
-                            display: "block",
-                            width: 70,
-                            height: 3,
-                            bgcolor: "#1976d2",
-                            borderRadius: 2,
-                            mx: "auto",
-                            mt: 1,
-                        },
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0s",
-                    }}
-                >
-                    Contact Me
-                </Typography>
 
-                <Typography
-                    variant="subtitle1"
-                    sx={{
-                        mb: 4,
-                        color: "#555",
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0.2s",
-                    }}
-                >
-                    Let's create something amazing together 👋
-                </Typography>
-
+                <SectionTitle visible={visible}>Contact Me</SectionTitle>
+                <SectionSubtitle visible={visible} sx={{ mb: 4 }}>Let's create something amazing together 👋</SectionSubtitle>
+    
                 <Snackbar
                     open={flash.open}
                     autoHideDuration={4000}

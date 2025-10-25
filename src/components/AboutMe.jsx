@@ -1,5 +1,7 @@
 import { Box, Button, Typography, keyframes } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import SectionTitle from "./Typography/SectionTitle";
+import SectionSubtitle from "./Typography/SectionSubtitle";
 import myPhoto from "../asset/me2.jpg"
 
 function AboutMe() {
@@ -44,45 +46,8 @@ function AboutMe() {
                     textAlign: "center",
                 }}
             >
-                <Typography 
-                    variant="h4" 
-                     sx={{
-                        fontWeight: 700,
-                        mb: 2,
-                        color: "#4b4b4b",
-                        position: "relative",
-                        display: "inline-block",
-                        "&::after": {
-                        content: '""',
-                        display: "block",
-                        width: 70,
-                        height: 3,
-                        bgcolor: "#1976d2",
-                        borderRadius: 2,
-                        mx: "auto",
-                        mt: 1,
-                        },
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0s", // first element shows immediately
-                        mb: 2,
-                    }}
-                >
-                    About Me
-                </Typography>
-
-                <Typography
-                    variant="subtitle1"
-                    sx={{ 
-                        mb: 10, 
-                        color: "#555",
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0.2s",
-                    }}
-                >
-                   Passion meets code, creating meaningful experience  
-                </Typography>
+                <SectionTitle visible={visible}>About Me</SectionTitle>
+                <SectionSubtitle visible={visible}>Passion meets code, creating meaningful experience</SectionSubtitle>
 
                 {/* Content */}
                 <Box

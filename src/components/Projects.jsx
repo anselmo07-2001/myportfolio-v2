@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, Grid, Typography, keyframes } from "@mui/material";
+import SectionTitle from "./Typography/SectionTitle";
+import SectionSubtitle from "./Typography/SectionSubtitle";
 import omnifood from "../asset/projects/omnifood.png";
 import natours from "../asset/projects/natours.png";
 import shopbop from "../asset/projects/shopbop.png";
@@ -74,46 +76,11 @@ function Projects() {
             ref={ref}
         >
             <Box sx={{ maxWidth: 1200, mx: "auto", textAlign: "center" }}>
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 700,
-                        color: "#4b4b4b",
-                        mb: 2,
-                        position: "relative",
-                        display: "inline-block",
-                        "&::after": {
-                        content: '""',
-                        display: "block",
-                        width: 70,
-                        height: 3,
-                        bgcolor: "#1976d2",
-                        borderRadius: 2,
-                        mx: "auto",
-                        mt: 1,
-                        },
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0s",
-                    }}
-                >
-                    My Projects
-                </Typography>
 
-                <Typography
-                    variant="subtitle1"
-                    sx={{
-                        mb: 10,
-                        color: "#555",
-                        opacity: visible ? 1 : 0,
-                        transform: visible ? "translateY(0)" : "translateY(30px)",
-                        transition: "all 0.8s ease-out 0.2s",
-                    }}
-                    >
-                    Turning ideas into reality, one project at a time.
-                </Typography>
-
-                  {/* Grid Layout */}
+                <SectionTitle visible={visible}>My Projects</SectionTitle>
+                <SectionSubtitle visible={visible}>Turning ideas into reality, one project at a time</SectionSubtitle>
+                
+                {/* Grid Layout */}
                 <Grid
                     container
                     spacing={5}
