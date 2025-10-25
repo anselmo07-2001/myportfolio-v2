@@ -3,7 +3,7 @@
 I recently gave my portfolio a complete redesign using **React.js** and **Material UI**.  
 It has a cleaner look, smoother animations, and better responsiveness across devices.  
 
-You can check it out here 👉 [https::](https://portfolio.riveraanselmo.com/)
+You can check it out here 👉 (https://portfolio.riveraanselmo.com/)
 
 This showcases my **tech skills**, the **projects I’ve built**, and a short **about me** section — plus a **contact form** if you want to get in touch or collaborate.
 
