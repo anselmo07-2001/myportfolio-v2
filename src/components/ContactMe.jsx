@@ -5,6 +5,7 @@ import SectionSubtitle from "./Typography/SectionSubtitle";
 import contactme from "../asset/contactme.png";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
+import SectionLayout from "./Layout/SectionLayout";
 
 
 function Contact() {
@@ -118,22 +119,8 @@ function Contact() {
 
 
     return (
-         <Box
-            ref={ref}
-            component="section"
-            id="Contact"
-            sx={{
-                py: { xs: 10, md: 12 },
-                px: { xs: 3, md: 0 },
-            }}
-        >
-            <Box 
-                sx={{ 
-                    maxWidth: 1200, 
-                    mx: "auto",
-                    textAlign: "center",
-                }}>
-
+        
+        <SectionLayout ref={ref} id="Contact">
                 <SectionTitle visible={visible}>Contact Me</SectionTitle>
                 <SectionSubtitle visible={visible} sx={{ mb: 4 }}>Let's create something amazing together 👋</SectionSubtitle>
     
@@ -352,8 +339,7 @@ function Contact() {
 
                     </Grid>
                 </Box>
-            </Box>
-        </Box>
+       </SectionLayout>  
     )
 }
 

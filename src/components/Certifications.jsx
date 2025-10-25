@@ -6,6 +6,7 @@ import cert1 from "../asset/certs/cert1.png";
 import cert2 from "../asset/certs/cert2.png";
 import cert3 from "../asset/certs/cert3.png";
 import cert4 from "../asset/certs/cert4.png";
+import SectionLayout from "./Layout/SectionLayout";
 
 
 const certifications = [
@@ -58,37 +59,20 @@ function Certification() {
     
 
     return (
-        <Box
-            ref={ref}
-            component="section"
-            id="Certification"
-            sx={{
-                py: { xs: 10, md: 12 },
-                px: { xs: 3, md: 0 },
-                background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)",
-            }}
-        >
-            <Box 
-                sx={{ 
-                    maxWidth: 1200, 
-                    mx: "auto",
-                    textAlign: "center",
-                }}>
+        <SectionLayout ref={ref} id="Certification" sx={{ background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)" }}>
+            <SectionTitle visible={visible}>Certifications</SectionTitle>
+            <SectionSubtitle visible={visible}>Never stop learning — recognized skills across technology</SectionSubtitle>
 
-                <SectionTitle visible={visible}>Certifications</SectionTitle>
-                <SectionSubtitle visible={visible}>Never stop learning — recognized skills across technology</SectionSubtitle>
-
-                <Grid container spacing={2} justifyContent={"center"}>
-                    {
-                        certifications.map((certificate, index) => (
-                            <Grid key={index} item xs={12} md={6} >
-                                <CerticateCard {...certificate} visible={visible} />
-                            </Grid>
-                        ))
-                    }
-                </Grid>
-            </Box>
-        </Box>
+            <Grid container spacing={2} justifyContent={"center"}>
+                {
+                    certifications.map((certificate, index) => (
+                        <Grid key={index} item xs={12} md={6} >
+                            <CerticateCard {...certificate} visible={visible} />
+                        </Grid>
+                    ))
+                }
+            </Grid>
+        </SectionLayout>
     )
 }
 

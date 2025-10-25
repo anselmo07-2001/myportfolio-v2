@@ -2,6 +2,7 @@ import { Box, Button, Typography, keyframes } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import SectionTitle from "./Typography/SectionTitle";
 import SectionSubtitle from "./Typography/SectionSubtitle";
+import SectionLayout from "./Layout/SectionLayout";
 import myPhoto from "../asset/me2.jpg"
 
 function AboutMe() {
@@ -29,23 +30,7 @@ function AboutMe() {
 
     
     return (
-        <Box
-            component="section"
-            id="About"
-            sx={{
-                py: { xs: 10, md: 12},
-                px: { xs: 3, md: 0},
-                backgroundColor: "#f3f7fd"
-            }}
-        >
-            <Box
-                ref={ref}
-                sx={{
-                    maxWidth: 1200,
-                    mx: "auto",
-                    textAlign: "center",
-                }}
-            >
+        <SectionLayout ref={ref} id="About">
                 <SectionTitle visible={visible}>About Me</SectionTitle>
                 <SectionSubtitle visible={visible}>Passion meets code, creating meaningful experience</SectionSubtitle>
 
@@ -146,8 +131,7 @@ function AboutMe() {
                         </Button>
                     </Box>
                 </Box>    
-            </Box>
-        </Box>
+        </SectionLayout>        
     );
 }
 

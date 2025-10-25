@@ -6,6 +6,7 @@ import omnifood from "../asset/projects/omnifood.png";
 import natours from "../asset/projects/natours.png";
 import shopbop from "../asset/projects/shopbop.png";
 import workopia from "../asset/projects/workopia.png";
+import SectionLayout from "./Layout/SectionLayout";
 
 
 const projects = [
@@ -64,19 +65,8 @@ function Projects() {
       }, []);
 
 
-    return (
-        <Box
-            component="section"
-            id="Projects"
-            sx={{
-                py: { xs: 10, md: 12 },
-                px: { xs: 3, md: 0 },
-                background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)",
-            }}
-            ref={ref}
-        >
-            <Box sx={{ maxWidth: 1200, mx: "auto", textAlign: "center" }}>
-
+    return (    
+        <SectionLayout ref={ref} id="Projects">
                 <SectionTitle visible={visible}>My Projects</SectionTitle>
                 <SectionSubtitle visible={visible}>Turning ideas into reality, one project at a time</SectionSubtitle>
                 
@@ -123,8 +113,8 @@ function Projects() {
                         Discover More Projects →
                     </Button>
                 </Box>
-            </Box>    
-        </Box>
+
+      </SectionLayout>   
     )
 }
 

@@ -2,6 +2,7 @@ import { Box, Grid, Typography, keyframes } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import SectionTitle from "./Typography/SectionTitle";
 import SectionSubtitle from "./Typography/SectionSubtitle";
+import SectionLayout from "./Layout/SectionLayout";
 
 
 const iconPop = keyframes`
@@ -51,17 +52,7 @@ function TechStack() {
   }, []);
 
   return (
-    <Box
-      ref={ref}
-      component="section"
-      id="Skills"
-      sx={{
-        py: { xs: 10, md: 12 },
-        px: { xs: 3, md: 0 },
-        background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)",
-      }}
-    >
-      <Box sx={{ maxWidth: 1200, mx: "auto", textAlign: "center" }}>
+     <SectionLayout ref={ref} id="Skills" sx={{ background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)" }}>
 
           <SectionTitle visible={visible}>My Tech Stack</SectionTitle>
           <SectionSubtitle visible={visible}>These are the tools I love working with every day</SectionSubtitle>
@@ -88,8 +79,8 @@ function TechStack() {
                 />
               </Grid>
           </Grid>
-      </Box>
-    </Box>
+
+    </SectionLayout>  
   );
 }
 
