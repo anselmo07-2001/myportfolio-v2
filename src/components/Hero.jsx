@@ -131,31 +131,28 @@ function Hero() {
                 {/* Right content */}
                 <Box
                     sx={{
-                        flex: 1,
-                        display: "flex",
-                        justifyItems: "center"
+                        animation: `${fadeInUp} 0.8s ease-out forwards`,
+                        opacity: 0,
+                        animationDelay: "0.6s",
+                        display: "inline-block",
                     }}
                 >
                     <Avatar
                         src="me.jpg"
                         alt="my photo"
                         sx={{
-                            width: { xs: "70vw", sm: "300px", md: "350px" },
-                            height: { xs: "70vw", sm: "300px", md: "350px" },
-                            maxWidth: 380,
-                            maxHeight: 380,
-                            border: "7px solid #1976d2",
-                            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.16)",
-                            transition: "0.4s",
-                            "&:hover": { transform: "scale(1.05)" },
-                            animation: `${fadeInUp} 0.8s ease-out forwards`,
-                            opacity: 0,
-                            animationDelay: "0.6s",
-                            }}
-                    >
-                    </Avatar>
-
-                </Box>  
+                        width: { xs: "70vw", sm: "300px", md: "350px" },
+                        height: { xs: "70vw", sm: "300px", md: "350px" },
+                        border: "7px solid #1976d2",
+                        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.16)",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease",
+                        "&:hover": {
+                            transform: "scale(1.05)",
+                        },
+                        }}
+                    />
+                </Box>
             </Box>
         </Box>
     )
