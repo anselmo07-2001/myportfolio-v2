@@ -1,6 +1,7 @@
 import { Box, Link, Typography, keyframes, Avatar } from "@mui/material";
 import linkedin from "../asset/linkedin.png"
 import github from "../asset/github.png"
+import me from "../asset/me.jpg"
 
 function Hero() {
 
@@ -138,7 +139,7 @@ function Hero() {
                     }}
                 >
                     <Avatar
-                        src="me.jpg"
+                        src={me}
                         alt="my photo"
                         sx={{
                         width: { xs: "70vw", sm: "300px", md: "350px" },
