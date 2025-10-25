@@ -7,6 +7,7 @@ import cert2 from "../asset/certs/cert2.png";
 import cert3 from "../asset/certs/cert3.png";
 import cert4 from "../asset/certs/cert4.png";
 import SectionLayout from "./Layout/SectionLayout";
+import CertificateCard from "./Cards/CertificateCard";
 
 
 const certifications = [
@@ -47,15 +48,15 @@ function Certification() {
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
     
-      useEffect(() => {
-        const observer = new IntersectionObserver(
-          ([entry]) => setVisible(entry.isIntersecting),
-          { threshold: 0.3 }
-        );
-    
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-      }, []);
+    useEffect(() => {
+    const observer = new IntersectionObserver(
+        ([entry]) => setVisible(entry.isIntersecting),
+        { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+    }, []);
     
 
     return (
@@ -67,7 +68,7 @@ function Certification() {
                 {
                     certifications.map((certificate, index) => (
                         <Grid key={index} item xs={12} md={6} >
-                            <CerticateCard {...certificate} visible={visible} />
+                            <CertificateCard {...certificate} visible={visible} />
                         </Grid>
                     ))
                 }
@@ -76,103 +77,5 @@ function Certification() {
     )
 }
 
-
-function CerticateCard({image, title, instructor, description, link, visible}) {
-    return (
-        <Box 
-            sx={{
-                height: "100%", 
-                maxWidth: { xs: "100%", md: 270 },
-                background: "white",
-                borderRadius: "10px",
-                overflow: "hidden",
-                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                    transform: "translateY(-10px)",
-                    boxShadow: "0 12px 35px rgba(25,118,210,0.25)",
-                },
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(30px)",
-                transition: "all 0.8s ease-out 0.5s",
-            }}
-        >
-
-           {/*  Image  */}
-          <Box
-            sx={{
-                width: "100%",
-                height: 200,
-                overflow: "hidden",
-            }}
-          >
-                <Box
-                    component="img"
-                    src={image}
-                    alt={title}
-                    sx={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        transition: "transform 0.4s ease",
-                        "&:hover": { transform: "scale(1.05)" },
-                    }}
-                />   
-          </Box>
-
-           {/*  Content  */}
-          <Box sx={{ p: 2 }}>
-            <Typography   
-                sx={{
-                    fontSize: "1rem",
-                    color: (theme) => `${theme.palette.primary.main}`,
-                    textAlign: "left",
-                    fontWeight: "bold",
-                    mb: 1
-                }}
-            >
-                 { title }
-            </Typography>
-
-            <Typography
-                sx={{
-                    textAlign: "left",
-                    color: "rgba(54, 54, 54, 1)",
-                    fontSize: 14,
-                    mb: 1
-                }}
-            >
-                Instructor: { instructor }
-            </Typography>
-
-            <Typography
-                sx={{
-                    textAlign: "left",
-                    fontSize: 14,
-                    color: "#555555ce",
-                    mb: 2
-                }}
-            >
-                { description }
-            </Typography>
-
-            <Button
-                fullWidth
-                target="_blank"
-                sx={{
-                    justifyContent: "flex-start",
-                    pl: 0
-                }}
-                href={link}
-            >
-                View Certificate →
-            </Button>
-
-
-          </Box>
-     
-        </Box>
-    )
-}
 
 export default Certification;
