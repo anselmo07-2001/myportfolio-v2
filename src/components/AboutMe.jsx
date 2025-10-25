@@ -4,29 +4,10 @@ import SectionTitle from "./Typography/SectionTitle";
 import SectionSubtitle from "./Typography/SectionSubtitle";
 import SectionLayout from "./Layout/SectionLayout";
 import myPhoto from "../asset/me2.jpg"
+import useVisibility from "../../custom_hooks/useVisibility";
 
 function AboutMe() {
-    const ref = useRef(null);
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-            if (entry.isIntersecting) {
-                setVisible(true); // animate when visible
-            } else {
-                setVisible(false); // reset when out of view
-            }
-            },
-            { threshold: 0.2 } // trigger when 20% visible
-        );
-
-        if (ref.current) observer.observe(ref.current);
-
-        return () => {
-            if (ref.current) observer.unobserve(ref.current);
-        };
-    }, []);
+    const [ref, visible] = useVisibility(0.3);
 
     
     return (

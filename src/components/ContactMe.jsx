@@ -6,14 +6,13 @@ import contactme from "../asset/contactme.png";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import SectionLayout from "./Layout/SectionLayout";
+import useVisibility from "../../custom_hooks/useVisibility";
 
 
 function Contact() {
 
-    const ref = useRef(null);
-    const [visible, setVisible] = useState(false);
+    const [ref, visible] = useVisibility(0.2); 
     const [formData, setFormData] = useState({ name: "", email: "", message: "", receiver_name: "Anselmo Rivera" });
-
     const [errors, setErrors] = useState({});
 
     const [flash, setFlash] = useState({
@@ -25,18 +24,6 @@ function Contact() {
     const [showCaptcha, setShowCaptcha] = useState(false);
     const [captchaValue, setCaptchaValue] = useState(null);
     const [loading, setLoading] = useState(false);
-
-        
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => setVisible(entry.isIntersecting),
-            { threshold: 0.3 }
-        );
-
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
-
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -81,9 +68,6 @@ function Contact() {
             setFlash({ open: true, message: "Please verify you are not a robot", severity: "error" });
             return;
         }
-
-
-
 
         setLoading(true);
 

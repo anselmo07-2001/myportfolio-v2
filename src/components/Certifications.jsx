@@ -8,6 +8,7 @@ import cert3 from "../asset/certs/cert3.png";
 import cert4 from "../asset/certs/cert4.png";
 import SectionLayout from "./Layout/SectionLayout";
 import CertificateCard from "./Cards/CertificateCard";
+import useVisibility from "../../custom_hooks/useVisibility";
 
 
 const certifications = [
@@ -45,19 +46,7 @@ const certifications = [
 
 function Certification() {
 
-    const ref = useRef(null);
-    const [visible, setVisible] = useState(false);
-    
-    useEffect(() => {
-    const observer = new IntersectionObserver(
-        ([entry]) => setVisible(entry.isIntersecting),
-        { threshold: 0.3 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-    }, []);
-    
+    const [ref, visible] = useVisibility(0.2);
 
     return (
         <SectionLayout ref={ref} id="Certification" sx={{ background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)" }}>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import SectionTitle from "./Typography/SectionTitle";
 import SectionSubtitle from "./Typography/SectionSubtitle";
 import SectionLayout from "./Layout/SectionLayout";
+import useVisibility from "../../custom_hooks/useVisibility";
 
 
 const iconPop = keyframes`
@@ -38,18 +39,7 @@ const backendIcons = [
 ];
 
 function TechStack() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const [ref, visible] = useVisibility(0.2);
 
   return (
      <SectionLayout ref={ref} id="Skills" sx={{ background: "radial-gradient(circle at 20% 30%, #e3f2fd, #f5f8ff, #fdfdfd)" }}>

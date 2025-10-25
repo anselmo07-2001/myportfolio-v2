@@ -8,6 +8,7 @@ import shopbop from "../asset/projects/shopbop.png";
 import workopia from "../asset/projects/workopia.png";
 import SectionLayout from "./Layout/SectionLayout";
 import ProjectCard from "./Cards/ProjectCard";
+import useVisibility from "../../custom_hooks/useVisibility";
 
 
 const projects = [
@@ -52,19 +53,7 @@ const projects = [
 
 
 function Projects() {
-    const ref = useRef(null);
-      const [visible, setVisible] = useState(false);
-    
-      useEffect(() => {
-        const observer = new IntersectionObserver(
-          ([entry]) => setVisible(entry.isIntersecting),
-          { threshold: 0.2 }
-        );
-    
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-      }, []);
-
+    const [ref, visible] = useVisibility(0.1);
 
     return (    
         <SectionLayout ref={ref} id="Projects">
